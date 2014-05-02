@@ -6,7 +6,7 @@ $(document).ready(function() {
   relogio();
   tempo();
   info();
-  
+
   //c
   aviso();
 });
@@ -61,7 +61,7 @@ function info(){
   var divs = $('div[id^="info"]').hide(),
       i = 0,
       t = 3;
-  
+
   (function cycle() {
       divs.eq(i).fadeIn(500)
                 .delay(60*1000)
@@ -70,7 +70,7 @@ function info(){
       if(i == divs.length)
         i=0;
   })();
-  
+
   setInterval( function() {
     $("#ino1, #ino2").delay(1000).queue(function(next){
       $(this).toggleClass("hide");

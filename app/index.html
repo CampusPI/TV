@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="tvApp">
 <head>
   <meta charset="utf-8">
   <title>Campus TV - Layout</title>
@@ -10,8 +10,13 @@
 </head>
 <body>
   Test
+  <!-- build:js js/vendor.js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <!-- endbuild -->
   <!-- build:js js/main.js -->
   <script src="js/app.js"></script>
+  <script src="js/controllers/main.js"></script>
   <!-- endbuild -->
 </body>
 </html>

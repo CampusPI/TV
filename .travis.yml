@@ -5,6 +5,8 @@ node_js:
 
 before_install:
   - npm install -g gulp
+  - npm install -g bower
+  - bower install
 
 notifications:
   slack: pifct:t7VCTopo5DXpAz7XIzG8yuDm

@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 
 // load plugins
@@ -50,42 +52,62 @@ gulp.task('default', ['clean'], function () {
 });
 
 gulp.task('connect', function () {
-    var connect = require('connect');
-    var app = connect()
-        .use(require('connect-livereload')({ port: 35729 }))
-        .use(connect.static('app'))
-        .use(connect.static('.tmp'))
-        .use(connect.directory('app'));
+  var connect = require('connect');
+  var app = connect()
+    .use(require('connect-livereload')({ port: 35729 }))
+    .use(connect.static('app'))
+    .use(connect.static('.tmp'))
+    .use(connect.directory('app'));
 
-    require('http').createServer(app)
-        .listen(9000)
-        .on('listening', function () {
-            console.log('Started connect web server on http://localhost:9000');
-        });
+  require('http').createServer(app)
+    .listen(9000)
+    .on('listening', function () {
+        console.log('Started connect web server on http://localhost:9000');
+      });
 });
 
 gulp.task('serve', ['connect'], function () {
-    require('opn')('http://localhost:9000');
+  require('opn')('http://localhost:9000');
 });
 
 gulp.task('watch', ['connect', 'serve'], function () {
-    var server = $.livereload();
+  var server = $.livereload();
 
-    gulp.watch([
-        'app/*.html',
-        '.tmp/css/**/*.css',
-        'app/js/**/*.js',
-    ]).on('change', function (file) {
-        server.changed(file.path);
-    });
+  gulp.watch([
+    'app/*.html',
+    '.tmp/css/**/*.css',
+    'app/js/**/*.js',
+  ]).on('change', function (file) {
+    server.changed(file.path);
+  });
 
-    gulp.watch('app/css/**/*.scss', ['styles']);
-    gulp.watch('app/js/**/*.js', ['scripts']);
+  gulp.watch('app/css/**/*.scss', ['styles']);
+  gulp.watch('app/js/**/*.js', ['scripts']);
 });
 
+
+//---------------------
+// Isto precisa de ficar mais bonito e mais abrangente
+// só correr o karma não vai chegar... ou então vai :X
+
+var testFiles = [
+  'app/bower_components/angular/angular.js',
+  'app/bower_components/angular-mocks/angular-mocks.js',
+  'app/bower_components/angular-resource/angular-resource.js',
+  'app/js/*.js',
+  'app/js/**/*.js',
+  'test/spec/**/*.js'
+];
+
 gulp.task('ci', function() {
-  //TODO: proper testing
-  return gulp.src('app/js/**/*.js')
-    .pipe($.jshint())
-    .pipe($.jshint.reporter(require('jshint-stylish')));
+  return gulp.src(testFiles)
+    .pipe($.karma({
+      configFile: 'karma.conf.js',
+      action: 'run',
+      browsers: ['PhantomJS']
+    }))
+    .on('error', function(err) {
+      console.log('Error: ',err.message);
+      process.exit(1);
+    });
 });

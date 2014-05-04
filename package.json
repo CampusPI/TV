@@ -1,0 +1,27 @@
+{
+  "name": "campustv-tv",
+  "description": "cliente TV para a CampusTV",
+  "private": true,
+  "version": "0.0.0",
+  "repository": "git://github.com/CampusPI/TV.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CampusPI/TV/issues"
+  },
+  "devDependencies": {
+    "connect": "^2.14.4",
+    "connect-livereload": "^0.4.0",
+    "gulp": "^3.6.0",
+    "gulp-clean": "^0.2.4",
+    "gulp-jshint": "^1.5.3",
+    "gulp-livereload": "^1.2.0",
+    "gulp-load-plugins": "^0.5.0",
+    "gulp-uglify": "^0.2.1",
+    "gulp-useref": "^0.4.2",
+    "jshint-stylish": "^0.2.0",
+    "opn": "^0.1.1"
+  },
+  "scripts": {
+    "test": "gulp ci"
+  }
+}

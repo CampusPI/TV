@@ -1,0 +1,10 @@
+language: node_js
+
+node_js:
+  - 0.10
+
+before_install:
+  - npm install -g gulp
+
+notifications:
+  slack: pifct:t7VCTopo5DXpAz7XIzG8yuDm

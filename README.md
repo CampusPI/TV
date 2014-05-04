@@ -1,5 +1,6 @@
-# Cliente TV para a CampusTV
+TV
+======
 
-## TODO
+[![Build Status](https://travis-ci.org/CampusPI/TV.svg?branch=master)](https://travis-ci.org/CampusPI/TV)
 
- + Passar para angular
+cliente para TV da campusTV

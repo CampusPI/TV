@@ -73,14 +73,18 @@ gulp.task('watch', ['connect', 'serve'], function () {
 
     gulp.watch([
         'app/*.html',
-        'app/css/**/*.css',
+        '.tmp/css/**/*.css',
         'app/js/**/*.js',
     ]).on('change', function (file) {
         server.changed(file.path);
     });
+
+    gulp.watch('app/css/**/*.scss', ['styles']);
+    gulp.watch('app/js/**/*.js', ['scripts']);
 });
 
 gulp.task('ci', function() {
+  //TODO: proper testing
   return gulp.src('app/js/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter(require('jshint-stylish')));

@@ -3,12 +3,40 @@ var gulp = require('gulp');
 // load plugins
 var $ = require('gulp-load-plugins')();
 
-gulp.task('html', function () {
+gulp.task('styles', function () {
+  return gulp.src('app/css/main.scss')
+    .pipe($.rubySass({
+      style: 'expanded',
+      precision: 10
+    }))
+    .pipe($.autoprefixer('last 1 version'))
+    .pipe(gulp.dest('.tmp/css'))
+    .pipe($.size());
+});
+
+gulp.task('scripts', function () {
+  return gulp.src('app/js/**/*.js')
+    .pipe($.jshint())
+    .pipe($.jshint.reporter(require('jshint-stylish')))
+    .pipe($.size());
+});
+
+gulp.task('html', ['styles', 'scripts'], function () {
+  var jsFilter = $.filter('**/*.js');
+  var cssFilter = $.filter('**/*.css');
+
   return gulp.src('app/*.html')
-    .pipe($.useref.assets({searchPath: 'app'}))
+    .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
+    .pipe(jsFilter)
+    .pipe($.uglify())
+    .pipe(jsFilter.restore())
+    .pipe(cssFilter)
+    .pipe($.csso())
+    .pipe(cssFilter.restore())
     .pipe($.useref.restore())
     .pipe($.useref())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe($.size());
 });
 
 gulp.task('clean', function () {

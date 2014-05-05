@@ -1,1 +1,0 @@
-"use strict";angular.module("tvApp",["ngResource"]),angular.module("tvApp").controller("MainCtrl",function(u){u.dummy=[1,2,3]});

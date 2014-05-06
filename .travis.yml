@@ -1,12 +1,20 @@
 language: node_js
 
 node_js:
-  - 0.10
+- 0.1
 
 before_install:
-  - npm install -g gulp
-  - npm install -g bower
-  - bower install
+- npm install -g gulp
+- npm install -g bower
+- bower install
+
+after_success:
+- if [[ "$TRAVIS_PULL_REQUEST" == false ]] && [[ "$TRAVIS_BRANCH" == master ]]; then
+  ./deploy.sh --verbose; fi
 
 notifications:
   slack: pifct:t7VCTopo5DXpAz7XIzG8yuDm
+
+env:
+  global:
+    secure: eqMRrzwUeMiRXKxNv3JevdRCzzQ2GzanV68V+GMEVa5KG9lwq0ObW+6lg7FnbFfvSejbRMhRsbrmt5gkhEwWF3F2w0jU1avyvw++sKjRzOLzntgClYu/WMBKR4WFe9ehcjct+z2P34rs755FVn8Sqvn2seggqzVuvZ+xs62GPRE=

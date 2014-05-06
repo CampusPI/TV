@@ -99,7 +99,7 @@ var testFiles = [
   'test/spec/**/*.js'
 ];
 
-gulp.task('ci', function() {
+gulp.task('ci', ['build'], function() {
   return gulp.src(testFiles)
     .pipe($.karma({
       configFile: 'karma.conf.js',

@@ -7,9 +7,8 @@ var $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function () {
   return gulp.src('app/css/main.scss')
-    .pipe($.rubySass({
-      style: 'expanded',
-      precision: 10
+    .pipe($.sass({
+      style: 'nested'
     }))
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('.tmp/css'))
@@ -30,7 +29,9 @@ gulp.task('html', ['styles', 'scripts'], function () {
   return gulp.src('app/*.html')
     .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
     .pipe(jsFilter)
-    .pipe($.uglify())
+    .pipe($.uglify({
+      mangle: false
+    }))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.csso())

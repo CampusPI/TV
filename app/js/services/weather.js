@@ -4,8 +4,8 @@ angular.module('tvApp').factory('WeatherService', function () {
   return{
     getWeather: function() {
       return {
-        temp: 24,
-        state: 'clear'
+        temp: 23,
+        state: 'mostlysunny'
       };
     }
   };

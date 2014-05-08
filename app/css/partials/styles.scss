@@ -67,7 +67,7 @@
  * Tempo
  */
 
-.weather object {
+.weather svg {
   vertical-align: middle;
 }
 
@@ -211,22 +211,27 @@ body {
 
 .color-green {
   color: #3cb258;
+  fill: #3cb258;
 }
 
 .color-purple {
   color: #5c65f4;
+  fill: #5c65f4;
 }
 
 .color-blue {
   color: #00abf1;
+  fill: #00abf1;
 }
 
 .color-yellow {
   color: #f3cc5a;
+  fill: #f3cc5a;
 }
 
 .color-red {
   color: #e94e4c;
+  fill: #e94e4c;
 }
 
 .time h1{
@@ -248,8 +253,9 @@ body {
   line-height: 10vmin;
 }
 
-.weather object {
+.weather svg {
   width: 10vmin;
+  height: 10vmin;
 }
 
 .header > h1{
@@ -333,4 +339,11 @@ hr.green {border-top: 1px solid #3cb258;}
   height: 100px;
   margin: 10px;
   display: inline-block;
+}
+
+
+
+.climacon_component-stroke {
+  stroke-width: 0px;
+  stroke: white;
 }

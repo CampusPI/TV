@@ -40,8 +40,9 @@
         </div>
         <div class="weather">
           <p ng-controller="WeatherCtrl" temp>
-            <object type="image/svg+xml" ng-attr-data="bower_components/animated-climacons/svgs/{{weather.state | weatherIcon}}.svg">
+            <!--<object type="image/svg+xml" ng-attr-data="bower_components/animated-climacons/svgs/{{weather.state | weatherIcon}}.svg">-->
             </object>
+            <img data="bower_components/animated-climacons/svgs/{{weather.state | weatherIcon}}.svg" svg>
             <span class="temp">{{weather.temp}}º</span>
           </p>
         </div>
@@ -114,6 +115,8 @@
   <script src="js/services/weather.js"></script>
   <!-- DIRECTIVES  -->
   <script src="js/directives/time.js"></script>
+  <script src="js/directives/svg.js"></script>
+  <script src="js/directives/temp.js"></script>
   <!-- FILTERS     -->
   <script src="js/filters/weatherIcon.js"></script>
   <!-- endbuild -->

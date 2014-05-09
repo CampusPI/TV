@@ -1,18 +1,13 @@
 'use strict';
-
+var colors = {
+  Importante: 'red',
+  Informação: 'blue',
+  Greve: 'green'
+};
 angular.module('tvApp').directive('broadcast', function() {
-  var colors = {
-    Importante: 'red',
-    Informação: 'blue',
-    Greve: 'green'
-  };
-  return {
-    restrict: 'A',
-    template: '<div class="label label-{{color}}"><b>{{message.type}}</b></div>' +
-              '<div class="texto">{{message.text}}</div>',
-    link: function (scope) {
-      scope.color = colors[scope.message.type];
-
-    }
+  return function(scope, element) {
+    scope.color = colors[scope.message.type];
+    element.html(scope.message.text);
+    $('.texto').marquee();
   };
 });

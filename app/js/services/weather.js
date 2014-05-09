@@ -5,7 +5,7 @@ angular.module('tvApp').factory('WeatherService', function () {
     getWeather: function() {
       return {
         temp: 23,
-        state: 'mostlysunny'
+        state: 'sunny'
       };
     }
   };

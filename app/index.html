@@ -24,10 +24,7 @@
         </div>
       </div>
       <div class="divi-c">
-        <div class="aviso">
-          <!-- AVISO -->
-          <div class="label label-blue"><b>Informação</b></div>
-          <div class="texto">Este é o primeiro aviso que avisa aos que foram avisados previamente que se pretenderem continuar a ser avisados terão de nos avisar.</div>
+        <div class="aviso" ng-controller="BroadcastCtrl" broadcast>
         </div>
       </div>
     </div>
@@ -40,14 +37,20 @@
         </div>
         <div class="weather">
           <p ng-controller="WeatherCtrl" temp>
-            <!--<object type="image/svg+xml" ng-attr-data="bower_components/animated-climacons/svgs/{{weather.state | weatherIcon}}.svg">-->
             </object>
             <img data="bower_components/animated-climacons/svgs/{{weather.state | weatherIcon}}.svg" svg>
             <span class="temp">{{weather.temp}}º</span>
           </p>
         </div>
-        <div class="info">
-          <div id="info2">
+        <div class="info" ng-controller="ContentCtrl">
+          <div class="header label-green">
+            <h1>{{title}}</h1>
+          </div>
+          <div class="ident">
+            <h2 class="name">{{name}}</h2>
+            <hr align="left" class="x">
+          </div>
+          <!--<div id="info2">
             <div class="header label-green">
               <h1>Transportes</h1>
             </div>
@@ -91,7 +94,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
       <div class="divi-b1">
@@ -111,12 +114,16 @@
   <!-- CONTROLLERS -->
   <script src="js/controllers/main.js"></script>
   <script src="js/controllers/weather.js"></script>
+  <script src="js/controllers/broadcast.js"></script>
+  <script src="js/controllers/content.js"></script>
   <!-- SERVICES    -->
   <script src="js/services/weather.js"></script>
+  <script src="js/services/broadcast.js"></script>
   <!-- DIRECTIVES  -->
   <script src="js/directives/time.js"></script>
   <script src="js/directives/svg.js"></script>
   <script src="js/directives/temp.js"></script>
+  <script src="js/directives/broadcast.js"></script>
   <!-- FILTERS     -->
   <script src="js/filters/weatherIcon.js"></script>
   <!-- endbuild -->

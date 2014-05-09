@@ -2,7 +2,6 @@
 
 angular.module('tvApp').directive('temp', function() {
   return function (scope, element) {
-    console.log(scope.weather.temp);
     if (scope.weather.temp < 20) {
       element.addClass('color-blue');
     }

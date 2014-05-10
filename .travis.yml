@@ -5,6 +5,8 @@ node_js:
 
 before_install:
 - npm install -g gulp
+- npm install -g bower
+- bower install
 
 after_success:
 - if [[ "$TRAVIS_PULL_REQUEST" == false ]] && [[ "$TRAVIS_BRANCH" == master ]]; then

@@ -12,7 +12,7 @@ angular.module('tvApp').factory('BroadcastService', function () {
         {
           priority: 1,
           type: 'Greve',
-          text: 'Este é o primeiro aviso que cenas fixes.'
+          text: 'Este é o segundo aviso que cenas fixes.'
         }
       ];
     }

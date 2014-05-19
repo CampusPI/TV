@@ -1,7 +1,24 @@
 'use strict';
 
-angular.module('tvApp').controller('BroadcastCtrl', function ($scope, BroadcastService, $timeout) {
-  $scope.message = BroadcastService.get()[0];
-  var countUp = function(){$scope.message = BroadcastService.get()[1];};
-  $timeout(countUp,2000);
+angular.module('tvApp').controller('BroadcastCtrl', function ($scope, BroadcastService) {
+  $scope.counter = 0;
+  $scope.all = BroadcastService.get();
+  $scope.next = function() {
+    if ($scope.counter < $scope.all.length) {
+      console.log('next ', $scope.counter);
+      $scope.message = $scope.all[$scope.counter];
+      $scope.$apply();
+      console.log('mudou: ',$scope.message);
+      $scope.counter++;
+    }
+    else {
+      $scope.counter = 0;
+      $scope.all = BroadcastService.get();
+      $scope.next();
+    }
+  };
+
+  $scope.next();
+
+
 });

@@ -3,3 +3,6 @@ $cenas: #eee;
 body {
   background-color: $cenas;
 }
+
+@import "partials/normalize";
+@import "partials/styles";

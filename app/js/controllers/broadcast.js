@@ -1,24 +1,29 @@
 'use strict';
 
 angular.module('tvApp').controller('BroadcastCtrl', function ($scope, BroadcastService) {
+
+  BroadcastService.get().then(function(data){
+    $scope.all = data;
+    $scope.next();
+  });
+
   $scope.counter = 0;
-  $scope.all = BroadcastService.get();
+
   $scope.next = function() {
     if ($scope.counter < $scope.all.length) {
-      console.log('next ', $scope.counter);
       $scope.message = $scope.all[$scope.counter];
-      $scope.$apply();
-      console.log('mudou: ',$scope.message);
       $scope.counter++;
+      if(!$scope.$$phase) {
+        $scope.$digest();
+      }
     }
     else {
       $scope.counter = 0;
-      $scope.all = BroadcastService.get();
-      $scope.next();
+      BroadcastService.get().then(function(data){
+        $scope.all = data;
+        $scope.next();
+      });
     }
   };
-
-  $scope.next();
-
 
 });

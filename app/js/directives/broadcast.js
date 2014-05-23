@@ -8,9 +8,11 @@ angular.module('tvApp').directive('broadcast', function() {
   return function(scope, element) {
     var count = 0;
     scope.$watch('message', function () {
-      $('.texto').html('').unbind('finished');
-      count = 0;
-      create();
+      if (scope.message) {
+        $('.texto').html('').unbind('finished');
+        count = 0;
+        create();
+      }
     });
     var create = function() {
       scope.color = colors[scope.message.type];

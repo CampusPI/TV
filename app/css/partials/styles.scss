@@ -304,8 +304,12 @@ body {
   padding-bottom: 0.6em;
   padding-top: 0.6em;
   text-align: left;
+  line-height: 1.5em;
 }
 
+.list > p > span:not(.label) {
+  font-weight: lighter;
+}
 
 
 hr {border: 0; border-top: 1px solid #34343c; -webkit-transform: translateZ(0);}

@@ -45,12 +45,17 @@
           </p>
         </div>
         <div class="info" ng-controller="ContentCtrl">
-          <div class="header label-green">
+          <div class="header label-{{color}}" colortag>
             <h1>{{title}}</h1>
           </div>
           <div class="ident">
             <h2 class="name">{{name}}</h2>
-            <hr align="left" class="x">
+            <hr align="left" class="x {{color}}" colortag animinus>
+            <div class="list">
+              <p><span class="label">Sopa:</span><span rep="sopa"></span></p>
+              <p><span class="label">Prato do dia:</span><span rep="prato"></span></p>
+              <p><span class="label">Sobremesa:</span><span rep="sobre"></span></p>
+            </div>
           </div>
           <!--<div id="info2">
             <div class="header label-green">
@@ -123,11 +128,14 @@
   <!-- SERVICES    -->
   <script src="js/services/weather.js"></script>
   <script src="js/services/broadcast.js"></script>
+  <script src="js/services/content.js"></script>
   <!-- DIRECTIVES  -->
   <script src="js/directives/time.js"></script>
   <script src="js/directives/svg.js"></script>
   <script src="js/directives/temp.js"></script>
   <script src="js/directives/broadcast.js"></script>
+  <script src="js/directives/colortag.js"></script>
+  <script src="js/directives/rep.js"></script>
   <!-- FILTERS     -->
   <script src="js/filters/weatherIcon.js"></script>
   <!-- endbuild -->

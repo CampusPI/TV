@@ -6,7 +6,7 @@ angular.module('tvApp').directive('rep', function($parse) {
     scope.$watch('name', function () {
       var data = $parse(attrs.rep)(scope);
       if(data){
-        element.append(data.join('<br />'));
+        element.html('').append(data.join('<br />'));
       }
     });
   };

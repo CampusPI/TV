@@ -1,16 +1,27 @@
 'use strict';
 
-angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentService) {
+angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentService, $timeout) {
+
+  var n = 0;
+  var d;
 
   ContentService.get().then(function(data){
-    prepare(data);
+    d = data;
+    prepare();
   });
 
-  var prepare = function(data) {
-    $scope.title = data[0].type;
-    $scope.name = data[0].content[0].name;
-    $scope.sopa = data[0].content[0].Sopa;
-    $scope.prato = data[0].content[0]['Prato(s) do dia'];
-    $scope.sobre = data[0].content[0].Sobremesas;
+  var prepare = function() {
+    $scope.title = d[0].type;
+    $scope.name = d[0].content[n].name;
+    $scope.sopa = d[0].content[n].Sopa;
+    $scope.prato = d[0].content[n]['Prato(s) do dia'];
+    $scope.sobre = d[0].content[n].Sobremesas;
+    if (n > d.length-1) {
+      n = 0;
+    }
+    else {
+      n++;
+    }
+    $timeout(prepare, 4000);
   };
 });

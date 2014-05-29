@@ -17,8 +17,12 @@ angular.module('tvApp').controller('VideoCtrl', function ($scope, VideosService)
     console.log('new');
     $scope.title = $scope.videos[curr].name;
     $scope.id = $scope.videos[curr].id;
-    if (curr === $scope.videos.length-1) curr=0;
-    else curr++;
+    if (curr === $scope.videos.length-1) {
+      curr=0;
+    }
+    else {
+      curr++;
+    }
   };
 
 });

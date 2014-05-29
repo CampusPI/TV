@@ -1,24 +1,14 @@
 'use strict';
 
-angular.module('tvApp').factory('VideosService', function () {
+angular.module('tvApp').factory('VideosService', function ($http) {
   return{
-    getVideos: function() {
-      return [
-        {
-          url: 'www.cenas.com',
-          title: 'Primeiro',
-          hour: '',
-          length: '',
-          description: ''
-        },
-        {
-          url: 'www.cenas.com',
-          title: 'Segundo',
-          hour: '',
-          length: '',
-          description: ''
-        },
-      ];
+    get: function() {
+      return $http({
+        method: 'GET',
+        url: 'http://localhost:8080/api/tv/videos'
+      }).then(function(response) {
+        return response.data;
+      });
     }
   };
 });

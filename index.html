@@ -10,13 +10,12 @@
 <body>
   <div class="row">
     <div class="col8">
-      <div class="divi-a">
+      <div class="divi-a" ng-controller="VideoCtrl">
         <div class="valign">
           <div class="whitespace">
-            <!--TITULO-->
+            <h1 class="title">{{title}}</h1>
           </div>
-          <div class="video">
-            <iframe src="//www.youtube.com/embed/526yUdkZN5A?end=100&modestbranding=0&autoplay=1&controls=0&showinfo=0&enablejsapi=1&rel=0" frameborder="0"></iframe>
+          <div class="video" youtube>
           </div>
           <div class="whitespace"></div>
         </div>

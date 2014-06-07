@@ -22,11 +22,18 @@ gulp.task('scripts', function () {
     .pipe($.size());
 });
 
-gulp.task('html', ['styles', 'scripts'], function () {
+gulp.task('svg', function () {
+  return gulp.src('app/bower_components/animated-climacons/svgs/**')
+    .pipe($.size())
+    .pipe(gulp.dest('dist/svgs'));
+});
+
+gulp.task('html', ['styles', 'scripts', 'svg'], function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
 
   return gulp.src('app/*.html')
+    .pipe($.replace('bower_components/animated-climacons/', ''))
     .pipe($.useref.assets({searchPath: '{.tmp,app}'}))
     .pipe(jsFilter)
     .pipe($.uglify({
@@ -38,6 +45,7 @@ gulp.task('html', ['styles', 'scripts'], function () {
     .pipe(cssFilter.restore())
     .pipe($.useref.restore())
     .pipe($.useref())
+    .pipe($.replace('http://localhost:8080', 'http://server.pi.campinhos.pt'))
     .pipe(gulp.dest('dist'))
     .pipe($.size());
 });

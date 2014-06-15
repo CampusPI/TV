@@ -2,49 +2,115 @@
 <html ng-app="tvApp">
 <head>
   <meta charset="utf-8">
-  <title>Campus TV</title>
+  <title>Campus TV - Layout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/main.css"/>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
 </head>
-<body class="grid">
-  <header>
-    <div class="logo"><p class="color-blue">Campus<span>TV</span></p></div>
-    <div class="search"><i class="fa fa-search"></i><input type="search" placeholder="search" name="search"></div>
-    <div class="login btn-blue"><a href="">Login</a></div>
-  </header>
-  <div class="grid-body">
-    <aside class="label-black sidebar">
-      <div class="decor-top">
-        <div class="label-green"></div>
-        <div class="label-blue"></div>
-        <div class="label-blue light"></div>
+<body>
+  <div class="row">
+    <div class="col8">
+      <div class="divi-a" ng-controller="VideoCtrl">
+        <div class="valign">
+          <div class="whitespace">
+            <h1 class="title">{{title}}</h1>
+          </div>
+          <div class="video">
+            <div youtube id="player"></div>
+          </div>
+          <div class="whitespace"></div>
+        </div>
       </div>
-      <div class="center-text"><a href="#" class="btn btn-blue center">Novo Conteúdo</a></div>
-      <div class="list">
-        <h3>Listas</h3>
-        <ul>
-          <li><a class="selected" href="">Ver mais tarde</a></li>
-          <li><a href="">Favoritos</a></li>
-        </ul>
-        <h3>Categorias</h3>
-        <ul>
-          <li><a href="">Categoria 1</a></li>
-          <li><a href="">Outra Categoria</a></li>
-        </ul>
+      <div class="divi-c">
+        <div class="aviso" ng-controller="BroadcastCtrl">
+          <div class="label label-{{color}}"><b>{{message.type}}</b></div>
+          <div class="texto" broadcast></div>
+        </div>
       </div>
-    </aside>
-    <main>
-      <div class="test label-blue"></div>
-      <div class="test label-green"></div>
-      <div class="test label-red"></div>
-      <div class="test label-purple"></div>
-      <div class="test label-yellow"></div>
-      <div class="test label-black"></div>
-      <div class="test label-white"></div>
-    </main>
+    </div>
+    <div class="col4">
+      <div class="divi-b">
+        <div class="time">
+          <h1 class="center">
+            <span type="hours" time></span> : <span type="minutes" time></span>
+          </h1>
+        </div>
+        <div class="weather">
+          <p ng-controller="WeatherCtrl" temp>
+            </object>
+            <img data="svgs/{{weather.state | weatherIcon}}.svg" svg>
+            <span class="temp">{{weather.temp}}º</span>
+          </p>
+        </div>
+        <div class="info" ng-controller="ContentCtrl">
+          <div class="header label-{{color}}" colortag>
+            <h1>{{title}}</h1>
+          </div>
+          <div class="ident">
+            <h2 class="name">{{name}}</h2>
+            <hr align="left" class="x {{color}}" colortag animinus>
+            <div class="list">
+              <p><span class="label">Sopa:</span><span rep="sopa"></span></p>
+              <p><span class="label">Prato do dia:</span><span rep="prato"></span></p>
+              <p><span class="label">Sobremesa:</span><span rep="sobre"></span></p>
+            </div>
+          </div>
+          <!--<div id="info2">
+            <div class="header label-green">
+              <h1>Transportes</h1>
+            </div>
+            <div class="ident animated fadeInRight" id="ino1">
+              <h2 class="name color-green">Metro do Sul</h2>
+              <hr align="left" class="x green">
+              <div class="ident">
+                <div class="list">
+                  <p><span class="label">Cacilhas:</span><span>15:30</span></p>
+                  <p><span class="label">Cacilhas:</span><span>15:40</span></p>
+                  <p><span class="label">Cacilhas:</span><span>16:00</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="ident animated fadeInRight fadeOutRight hide" id="ino2">
+              <h2 class="name color-green">Fertagus</h2>
+              <hr align="left" class="x green">
+              <div class="ident">
+                <div class="list">
+                  <p><span class="label">Roma Areeiro:</span><span>15:30</span></p>
+                  <p><span class="label">Roma Areeiro:</span><span>15:40</span></p>
+                  <p><span class="label">Roma Areeiro:</span><span>16:00</span></p>
+                  <p><span class="label">Coina:</span><span>15:39</span></p>
+                  <p><span class="label">Setúbal:</span><span>15:49</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="info1">
+            <div class="header label-yellow">
+              <h1>Ementas</h1>
+            </div>
+            <div class="ident">
+              <h2 class="name color-yellow">Teresa Gato</h2>
+              <hr align="left" class="yellow">
+              <div class="ident">
+                <div class="list">
+                  <p><span class="label">Sopa:</span><span>Legumes</span></p>
+                  <p><span class="label">Peixe:</span><span>Maruca Assada</span></p>
+                  <p><span class="label">Carne:</span><span>Bitoque</span></p>
+                </div>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </div>
+      <div class="divi-b1">
+        <div class="about">
+          <p>Visita a nossa plataforma em</p>
+          <p><span>tv.fct.unl.pt</span></p>
+        </div>
+      </div>
+    </div>
   </div>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="js/vendor.js"></script>
   <script src="js/main.js"></script>
 </body>

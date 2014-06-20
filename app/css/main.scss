@@ -4,5 +4,7 @@ body {
   background-color: $cenas;
 }
 
+@import "partials/vars";
 @import "partials/normalize";
 @import "partials/styles";
+

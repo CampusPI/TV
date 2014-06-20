@@ -161,9 +161,9 @@ body {
 
 .divi-a {
   -webkit-transform-style: preserve-3d;
-  background-color: #101017;
+  background-color: darken($color-black,5%);
   font-size: 2vmin;
-  color: #a0a0ad;
+  color: $color-white;
 }
 
 .whitespace {
@@ -179,20 +179,20 @@ body {
 
 .divi-b,
 .divi-b1 {
-  background-color: #1d1d26;
+  background-color: $color-black;
   color: #E9F2F9;
   border-left: 1px solid #272730;
 }
 
 .divi-c {
-  background-color: #15151f;
-  color: #E9F2F9;
+  background-color: lighten($color-black,1%);
+  color: $color-black;
   font-size: 2.8vh;
   line-height: 7vh;
 }
 
 .aviso > .label {
-  color: #1d1d26;
+  color: $color-black;
 }
 
 .aviso > .texto {
@@ -200,48 +200,48 @@ body {
 }
 
 .label-green {
-  background-color: #3cb258;
+  background-color: $color-green;
 }
 
 .label-purple {
-  background-color: #5c65f4;
+  background-color: $color-purple;
 }
 
 .label-blue {
-  background-color: #00abf1;
+  background-color: $color-blue;
 }
 
 .label-yellow {
-  background-color: #f3cc5a;
+  background-color: $color-yellow;
 }
 
 .label-red {
-  background-color: #e94e4c;
+  background-color: $color-red;
 }
 
 .color-green {
-  color: #3cb258;
-  fill: #3cb258;
+  color: $color-green;
+  fill: $color-green;
 }
 
 .color-purple {
-  color: #5c65f4;
-  fill: #5c65f4;
+  color: $color-purple;
+  fill: $color-purple;
 }
 
 .color-blue {
-  color: #00abf1;
-  fill: #00abf1;
+  color: $color-blue;
+  fill: $color-blue;
 }
 
 .color-yellow {
-  color: #f3cc5a;
-  fill: #f3cc5a;
+  color: $color-yellow;
+  fill: $color-yellow;
 }
 
 .color-red {
-  color: #e94e4c;
-  fill: #e94e4c;
+  color: $color-red;
+  fill: $color-red;
 }
 
 .time h1{
@@ -271,7 +271,7 @@ body {
 .header > h1{
   width: 100%;
   font-size: 5vmin;
-  color: #1d1d26;
+  color: $color-black;
   padding-left: 0.25em;
   padding-top: 0.15em;
   padding-bottom: 0.15em;
@@ -323,27 +323,33 @@ body {
 
 
 hr {border: 0; border-top: 1px solid #34343c; -webkit-transform: translateZ(0);}
-hr.yellow {border-top: 1px solid #f3cc5a;}
-hr.green {border-top: 1px solid #3cb258;}
+hr.yellow {border-top: 1px solid $color-yellow;}
+hr.green {border-top: 1px solid $color-green;}
 
 
-.about {
-  padding: 0 20px;
-  padding-bottom: 0.5em;
-  border-top: 3px solid #e94e4c;
+.divi-b1 {
+  border-top: 3px solid $color-green;
 }
-.about > p {
+.divi-b1 > p {
   font-size: 3vmin;
   font-weight: 300;
   text-align: center;
   margin: 0;
-  padding: 0.5em 0 0 0;
 }
-.about span {
+
+.divi-b1 > .logo {
+  font-family: $logo-font;
+  font-size: 8vmin;
+  color: $color-blue;
+  span {
+    color: lighten($color-blue,15%);
+  }
+}
+/*.divi-b1 span {
   font-weight: 700;
   font-size: 3.5vmin;
-  border-bottom: 1px solid #e94e4c;
-}
+  border-bottom: 1px solid $color-red;
+}*/
 
 
 /*--------------*/

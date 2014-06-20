@@ -5,7 +5,7 @@ angular.module('tvApp').factory('VideosService', function ($http) {
     get: function() {
       return $http({
         method: 'GET',
-        url: 'http://localhost:8080/api/tv/videos'
+        url: 'http://localhost:8080/api/tv/schedule'
       }).then(function(response) {
         return response.data;
       });

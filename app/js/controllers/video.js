@@ -14,9 +14,8 @@ angular.module('tvApp').controller('VideoCtrl', function ($scope, VideosService)
   };
 
   var getcurr = function() {
-    console.log('new');
     $scope.title = $scope.videos[curr].name;
-    $scope.id = $scope.videos[curr].id;
+    $scope.id = $scope.videos[curr].videoId;
     if (curr === $scope.videos.length-1) {
       curr=0;
     }

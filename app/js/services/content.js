@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('tvApp').factory('ContentService', function ($http) {
+angular.module('tvApp').factory('ContentService', function ($http, endpoint) {
   return{
     get: function() {
       return $http({
         method: 'GET',
-        url: 'http://localhost:8080/api/tv/content'
+        url: endpoint+'/api/tv/content'
       }).then(function(response) {
         return response.data;
       });

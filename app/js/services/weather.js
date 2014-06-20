@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('tvApp').factory('WeatherService', function ($http) {
+angular.module('tvApp').factory('WeatherService', function ($http, endpoint) {
   return{
     getWeather: function() {
       return $http({
         method: 'GET',
-        url: 'http://localhost:8080/api/tv/weather'
+        url: endpoint+'/api/tv/weather'
       }).then(function(response) {
         return response.data;
       });

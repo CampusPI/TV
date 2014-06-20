@@ -79,7 +79,7 @@ gulp.task('serve', ['connect'], function () {
   require('opn')('http://localhost:9069');
 });
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('watch', ['styles','connect', 'serve'], function () {
   var server = $.livereload();
 
   gulp.watch([

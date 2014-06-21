@@ -28,7 +28,13 @@ gulp.task('svg', function () {
     .pipe(gulp.dest('dist/svgs'));
 });
 
-gulp.task('html', ['styles', 'scripts', 'svg'], function () {
+gulp.task('fonts', function () {
+  return gulp.src('app/fonts/*')
+    .pipe(gulp.dest('dist/fonts'))
+    .pipe($.size());
+});
+
+gulp.task('html', ['styles', 'scripts', 'svg', 'fonts'], function () {
   var jsFilter = $.filter('**/*.js');
   var cssFilter = $.filter('**/*.css');
 

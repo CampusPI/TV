@@ -7,7 +7,7 @@ angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentServi
 
   var ni = 0;
 
-  $scope.trigger = false;
+  //$scope.trigger = false;
   var get = function() {
     ContentService.get().then(function(data){
       d = data;
@@ -16,9 +16,7 @@ angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentServi
   };
 
   var prepare = function() {
-    console.log(n);
-    console.log(d.length);
-    $scope.trigger = !$scope.trigger;
+    $scope.trigger = !$scope.trigger || false;
     $scope.name = d[0].content[ni].name;
     $scope.title = d[0].type;
     $scope.data = d[0].content[ni];

@@ -5,23 +5,35 @@ angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentServi
   var n = 0;
   var d;
 
-  ContentService.get().then(function(data){
-    d = data;
-    prepare();
-  });
+  var ni = 0;
+
+  $scope.trigger = false;
+  var get = function() {
+    ContentService.get().then(function(data){
+      d = data;
+      prepare();
+    });
+  };
 
   var prepare = function() {
+    console.log(n);
+    console.log(d.length);
+    $scope.trigger = !$scope.trigger;
+    $scope.name = d[0].content[ni].name;
     $scope.title = d[0].type;
-    $scope.name = d[0].content[n].name;
-    $scope.sopa = d[0].content[n].Sopa;
-    $scope.prato = d[0].content[n]['Prato(s) do dia'];
-    $scope.sobre = d[0].content[n].Sobremesas;
+    $scope.data = d[0].content[ni];
+    delete $scope.data.name;
     if (n > d.length-1) {
       n = 0;
+      ni = 0;
+      $timeout(get, 5000);
     }
     else {
       n++;
+      ni++;
+      $timeout(prepare, 5000);
     }
-    $timeout(prepare, 4000);
   };
+
+  get();
 });

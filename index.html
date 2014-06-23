@@ -46,13 +46,11 @@
           <div class="header label-{{color}}" colortag>
             <h1>{{title}}</h1>
           </div>
-          <div class="ident">
+          <div class="ident" animfade>
             <h2 class="name">{{name}}</h2>
             <hr align="left" class="x {{color}}" colortag animinus>
             <div class="list">
-              <p><span class="label">Sopa:</span><span rep="sopa"></span></p>
-              <p><span class="label">Prato do dia:</span><span rep="prato"></span></p>
-              <p><span class="label">Sobremesa:</span><span rep="sobre"></span></p>
+              <p ng-repeat="(k,d) in data"><span class="label">{{k}}:</span><span>{{d.join(', ')}}</span></p>
             </div>
           </div>
           <!--<div id="info2">

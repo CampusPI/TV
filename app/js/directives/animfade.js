@@ -9,6 +9,9 @@ angular.module('tvApp').directive('animfade', function($timeout) {
       if (ignore) {
         $timeout(anim, 4000);
         ignore = !ignore;
+        $timeout(function() {
+          $(elem).fadeOut(1000).fadeIn(2000);
+        }, 4000);
       }
     });
 

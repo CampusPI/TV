@@ -14,9 +14,12 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     //$scope.article = null;
     $scope.currType = null;
     $scope.schedule.forEach(function(entry){
-      if(entry.type === 'video')
+      if(entry.type === 'video') {
         $scope.videos.push(entry);
-      else $scope.articles.push(entry);
+      }
+      else {
+        $scope.articles.push(entry);
+      }
     });
     //console.log($scope.videos);
     //console.log("");
@@ -29,7 +32,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   };
 
   var getcurr = function() {
-    //if(Math.floor((Math.random() * 100) + 1) > 50){
+      //if(Math.floor((Math.random() * 100) + 1) > 50){
       $scope.currType = 'video';
       $scope.video = $scope.videos[currVideo];
       if (currVideo === $scope.videos.length-1) {

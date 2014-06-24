@@ -2,10 +2,9 @@
 
 angular.module('tvApp').directive('youtube', function($window) {
   return function (scope) {
-    scope.$watch('video', function() {
 
-      function newPlaya() {
-        console.log(scope);
+    function newPlaya() {
+      scope.$watch('video', function() {
         console.log(scope.video);
         player = new YT.Player('player', {
           videoId: scope.video.videoId,
@@ -20,25 +19,25 @@ angular.module('tvApp').directive('youtube', function($window) {
             'onStateChange': onPlayerStateChange
           }
         });
+      });
+    }
+
+    if ($('.video').html().trim() !== '<div id="player"></div>') {
+      $('.video').html('<div id="player"></div>');
+      newPlaya();
+    }
+
+    var player;
+
+    $window.onYouTubeIframeAPIReady = function () {
+      newPlaya();
+    };
+
+    function onPlayerStateChange(event) {
+      console.log(event.data);
+      if (event.data === 0) {
+        scope.next();
       }
-
-      if ($('.video').html().trim() !== '<div id="player"></div>') {
-        $('.video').html('<div id="player"></div>');
-        newPlaya();
-      }
-
-      var player;
-
-      $window.onYouTubeIframeAPIReady = function () {
-        newPlaya();
-      };
-
-      function onPlayerStateChange(event) {
-        console.log(event.data);
-        if (event.data === 0) {
-          scope.next();
-        }
-      }
-    });
+    }
   };
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tvApp').factory('VideosService', function ($http, endpoint) {
+angular.module('tvApp').factory('ScheduleService', function ($http, endpoint) {
   return{
     get: function() {
       return $http({

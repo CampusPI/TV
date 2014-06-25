@@ -12,7 +12,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     $scope.videos = [];
     $scope.articles = [];
     $scope.biblios = [];
-    $scope.video = null;
+    //$scope.video = null;
     $scope.article = null;
     $scope.article2 = null;
     $scope.biblio = null;
@@ -39,7 +39,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   };
 
   var getcurr = function() {
-    if(Math.floor((Math.random() * 100) + 1) > 50){
+    /*if(Math.floor((Math.random() * 100) + 1) > 50){
       $scope.currType = 'video';
       $scope.video = $scope.videos[currVideo];
       if (currVideo === $scope.videos.length-1) {
@@ -62,8 +62,8 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
             currArticle++;
           }
           $timeout(getcurr, 11000);
-    }
-    else{
+    }*/
+    //else{
       $scope.currType = 'biblio';
       $scope.biblio = $scope.biblios[currBiblio];
           //console.log("ceanceasnceasda");
@@ -75,7 +75,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
             currBiblio++;
           }
           $timeout(getcurr, 11000);
-    }
+    //}
   };
 
 });

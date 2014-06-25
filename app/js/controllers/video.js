@@ -39,7 +39,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   };
 
   var getcurr = function() {
-    if(Math.floor((Math.random() * 100) + 1) > 50){
+    // if(Math.floor((Math.random() * 100) + 1) > 50){
       $scope.currType = 'video';
       $scope.video = $scope.videos[currVideo];
       if (currVideo === $scope.videos.length-1) {
@@ -48,34 +48,34 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
       else {
         currVideo++;
       }
-    }
-    else if(Math.floor((Math.random() * 100) + 1) < 33){
-      $scope.currType = 'article';
-      $scope.article = $scope.articles[currArticle];
-      $scope.article2 = $scope.articles[currArticle+1];
-          //console.log("ceanceasnceasda");
+    // }
+    // else if(Math.floor((Math.random() * 100) + 1) < 33){
+    //   $scope.currType = 'article';
+    //   $scope.article = $scope.articles[currArticle];
+    //   $scope.article2 = $scope.articles[currArticle+1];
+    //       //console.log("ceanceasnceasda");
 
-          if (currArticle+1 === $scope.articles.length - 1) {
-            currArticle = 0;
-          }
-          else {
-            currArticle++;
-          }
-          $timeout(getcurr, 11000);
-    }
-    else{
-      $scope.currType = 'biblio';
-      $scope.biblio = $scope.biblios[currBiblio];
-          //console.log("ceanceasnceasda");
+    //       if (currArticle+1 === $scope.articles.length - 1) {
+    //         currArticle = 0;
+    //       }
+    //       else {
+    //         currArticle++;
+    //       }
+    //       $timeout(getcurr, 11000);
+    // }
+    // else{
+    //   $scope.currType = 'biblio';
+    //   $scope.biblio = $scope.biblios[currBiblio];
+    //       //console.log("ceanceasnceasda");
 
-          if (currBiblio+1 === $scope.biblios.length - 1) {
-            currBiblio = 0;
-          }
-          else {
-            currBiblio++;
-          }
-          $timeout(getcurr, 11000);
-    }
+    //       if (currBiblio+1 === $scope.biblios.length - 1) {
+    //         currBiblio = 0;
+    //       }
+    //       else {
+    //         currBiblio++;
+    //       }
+    //       $timeout(getcurr, 11000);
+    // }
   };
 
 });

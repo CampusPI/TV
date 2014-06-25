@@ -13,7 +13,7 @@ angular.module('tvApp').directive('youtube', function($window) {
             'modestbranding': 0,
             'showinfo': 0,
             'rel': 0,
-            'end': 20
+            'end': 10
           },
           events: {
             'onStateChange': onPlayerStateChange
@@ -30,11 +30,11 @@ angular.module('tvApp').directive('youtube', function($window) {
     });
 
 
-    var player;
+    // var player;
 
-    $window.onYouTubeIframeAPIReady = function () {
-      newPlaya();
-    };
+    // $window.onYouTubeIframeAPIReady = function () {
+    //   newPlaya();
+    // };
 
     function onPlayerStateChange(event) {
       console.log(event.data);

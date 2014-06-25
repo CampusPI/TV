@@ -74,54 +74,10 @@
             <h2 class="name">{{name}}</h2>
             <hr align="left" class="x {{color}}" colortag animinus>
             <div class="list">
-              <p ng-repeat="(k,d) in data"><span class="label">{{k}}:</span><span>{{d.join(', ')}}</span></p>
+              <p ng-if="title==='Transportes'" ng-repeat="d in data"><span class="ident label">{{d}}</span></span></p>
+              <p ng-if="title==='Ementas'" ng-repeat="(k,d) in data"><span class="label">{{k}}:</span><span>{{d.join(', ')}}</span></p>
             </div>
           </div>
-          <!--<div id="info2">
-            <div class="header label-green">
-              <h1>Transportes</h1>
-            </div>
-            <div class="ident animated fadeInRight" id="ino1">
-              <h2 class="name color-green">Metro do Sul</h2>
-              <hr align="left" class="x green">
-              <div class="ident">
-                <div class="list">
-                  <p><span class="label">Cacilhas:</span><span>15:30</span></p>
-                  <p><span class="label">Cacilhas:</span><span>15:40</span></p>
-                  <p><span class="label">Cacilhas:</span><span>16:00</span></p>
-                </div>
-              </div>
-            </div>
-            <div class="ident animated fadeInRight fadeOutRight hide" id="ino2">
-              <h2 class="name color-green">Fertagus</h2>
-              <hr align="left" class="x green">
-              <div class="ident">
-                <div class="list">
-                  <p><span class="label">Roma Areeiro:</span><span>15:30</span></p>
-                  <p><span class="label">Roma Areeiro:</span><span>15:40</span></p>
-                  <p><span class="label">Roma Areeiro:</span><span>16:00</span></p>
-                  <p><span class="label">Coina:</span><span>15:39</span></p>
-                  <p><span class="label">Setúbal:</span><span>15:49</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="info1">
-            <div class="header label-yellow">
-              <h1>Ementas</h1>
-            </div>
-            <div class="ident">
-              <h2 class="name color-yellow">Teresa Gato</h2>
-              <hr align="left" class="yellow">
-              <div class="ident">
-                <div class="list">
-                  <p><span class="label">Sopa:</span><span>Legumes</span></p>
-                  <p><span class="label">Peixe:</span><span>Maruca Assada</span></p>
-                  <p><span class="label">Carne:</span><span>Bitoque</span></p>
-                </div>
-              </div>
-            </div>
-          </div>-->
         </div>
       </div>
       <div class="divi-b1">

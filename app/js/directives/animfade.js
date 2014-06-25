@@ -7,18 +7,18 @@ angular.module('tvApp').directive('animfade', function($timeout) {
 
     scope.$watch('trigger', function () {
       if (ignore) {
-        $timeout(anim, 4000);
+        $timeout(anim, 6000);
         ignore = !ignore;
         $timeout(function() {
           $(elem).fadeOut(1000).fadeIn(2000);
-        }, 4000);
+        }, 6000);
       }
     });
 
     var anim = function() {
       setInterval(function () {
         $(elem).fadeOut(1000).fadeIn(2000);
-      },5000);
+      },7000);
     };
   };
 });

@@ -1,11 +1,15 @@
 'use strict';
 
-angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout) {
+angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout, DSCacheFactory) {
 
   var currVideo = 0;
   var currArticle = 0;
   var currBiblio = 0;
   var currType = null;
+
+  var scheduleCache = DSCacheFactory('scheduleCache');
+
+  console.log(scheduleCache);
 
   ScheduleService.get().then(function(data){
     $scope.schedule = data;

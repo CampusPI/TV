@@ -34,5 +34,8 @@
   },
   "scripts": {
     "test": "gulp ci"
+  },
+  "dependencies": {
+    "angular-cache": "~3.0.3"
   }
 }

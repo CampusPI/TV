@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService) {
+angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout) {
 
   var currVideo = 0;
   var currArticle = 0;
@@ -45,12 +45,15 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     else{
       $scope.currType = 'article';
       $scope.article = $scope.articles[currArticle];
+        console.log("ceanceasnceasda");
+
       if (currArticle === $scope.articles.length-1) {
         currArticle=0;
       }
       else {
         currArticle++;
       }
+      $timeout(getcurr, 2000);
     }
 
     /*$scope.title = $scope.videos[curr].name;

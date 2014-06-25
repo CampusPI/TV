@@ -31,11 +31,11 @@ angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentServi
           n++;
         }
         ni = 0;
-        $timeout(get, 5000);
+        $timeout(get, 7000);
       }
       else {
         ni++;
-        $timeout(prepare, 5000);
+        $timeout(prepare, 7000);
       }
     }
     else {
@@ -57,11 +57,11 @@ angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentServi
         else {
           ni++;
         }
-        $timeout(get, 5000);
+        $timeout(get, 7000);
       }
       else {
         k++;
-        $timeout(prepare, 5000);
+        $timeout(prepare, 7000);
       }
     }
   };

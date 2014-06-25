@@ -5,7 +5,7 @@ angular.module('tvApp').directive('youtube', function($window) {
 
     function newPlaya() {
       scope.$watch('video', function() {
-        console.log(scope.video);
+        console.log(scope);
         player = new YT.Player('player', {
           videoId: scope.video.videoId,
           playerVars: {
@@ -13,7 +13,8 @@ angular.module('tvApp').directive('youtube', function($window) {
             'controls': 1,
             'modestbranding': 0,
             'showinfo': 0,
-            'rel': 0
+            'rel': 0,
+            'end': 20
           },
           events: {
             'onStateChange': onPlayerStateChange

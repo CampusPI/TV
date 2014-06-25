@@ -29,15 +29,13 @@ angular.module('tvApp').directive('youtube', function($window) {
       }
     });
 
-
-    // var player;
+    var player;
 
     // $window.onYouTubeIframeAPIReady = function () {
     //   newPlaya();
     // };
 
     function onPlayerStateChange(event) {
-      console.log(event.data);
       if (event.data === 0) {
         scope.next();
       }

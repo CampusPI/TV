@@ -7,36 +7,44 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   var currBiblio = 0;
   var currType = null;
 
-  var scheduleCache = DSCacheFactory('scheduleCache');
+  var videosCache = DSCacheFactory('videosCache');
 
-  console.log(scheduleCache);
+  console.log(videosCache);
 
-  ScheduleService.get().then(function(data){
-    $scope.schedule = data;
-    $scope.videos = [];
-    $scope.articles = [];
-    $scope.biblios = [];
-    $scope.video = null;
-    $scope.article = null;
-    $scope.article2 = null;
-    $scope.biblio = null;
-    $scope.currType = null;
-    $scope.schedule.forEach(function(entry){
-      if(entry.type === 'video') {
-        $scope.videos.push(entry);
-      }
-      else if(entry.type === 'new') {
-        $scope.articles.push(entry);
-      }
-      else if(entry.type === 'biblio'){
-        $scope.biblios.push(entry);
-      }
+  if(videosCache.storage){
+    ScheduleService.get().then(function(data){
+      $scope.schedule = data;
+      $scope.videos = [];
+      // $scope.articles = [];
+      // $scope.biblios = [];
+      $scope.video = null;
+      // $scope.article = null;
+      // $scope.article2 = null;
+      // $scope.biblio = null;
+      $scope.currType = null;
+      $scope.schedule.forEach(function(entry){
+        if(entry.type === 'video') {
+          if(videosCache.get(entry.videoId)){
+            $scope.videos.push(entry);
+          }
+          else{
+            videosCache.put(entry.videoId, entry);
+            $scope.videos.push(entry);
+          }
+        }
+        // else if(entry.type === 'new') {
+        //   $scope.articles.push(entry);
+        // }
+        // else if(entry.type === 'biblio'){
+        //   $scope.biblios.push(entry);
+        // }
+      });
+      getcurr();
     });
-    // console.log($scope.videos);
-    //console.log("");
-    //console.log($scope.articles);
-    getcurr();
-  });
+  }
+  else{
+    console.log("MERDA!");
+  }
 
   $scope.next = function() {
     getcurr();

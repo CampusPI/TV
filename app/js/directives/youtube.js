@@ -5,12 +5,11 @@ angular.module('tvApp').directive('youtube', function($window) {
 
     function newPlaya() {
       scope.$watch('video', function() {
-        console.log(scope);
         player = new YT.Player('player', {
           videoId: scope.video.videoId,
           playerVars: {
             'autoplay': 1,
-            'controls': 1,
+            'controls': 0,
             'modestbranding': 0,
             'showinfo': 0,
             'rel': 0,

@@ -19,7 +19,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     $scope.currType = null;
     $scope.schedule.forEach(function(entry){
       if(entry.type === 'video') {
-        console.log($scope.videos);
+        $scope.videos.push(entry);
       }
       else if(entry.type === 'new') {
         $scope.articles.push(entry);

@@ -22,10 +22,13 @@ angular.module('tvApp').directive('youtube', function($window) {
       });
     }
 
-    if ($('.video').html().trim() !== '<div id="player"></div>') {
-      $('.video').html('<div id="player"></div>');
-      newPlaya();
-    }
+    scope.$watch('video', function() {
+      if ($('.video').html().trim() !== '<div id="player"></div>') {
+        $('.video').html('<div id="player"></div>');
+        newPlaya();
+      }
+    });
+
 
     var player;
 

@@ -12,6 +12,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     $scope.articles = [];
     $scope.video = null;
     $scope.article = null;
+    $scope.article2 = null;
     $scope.currType = null;
     $scope.schedule.forEach(function(entry){
       if(entry.type === 'video') {
@@ -45,9 +46,10 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     else{
       $scope.currType = 'article';
       $scope.article = $scope.articles[currArticle];
+      $scope.article2 = $scope.articles[currArticle+1];
           //console.log("ceanceasnceasda");
 
-          if (currArticle === $scope.articles.length - 1) {
+          if (currArticle+1 === $scope.articles.length - 1) {
             currArticle = 0;
           }
           else {

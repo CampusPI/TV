@@ -15,20 +15,33 @@
 
 
       <div class="divi-a" ng-controller="ScheduleCtrl">
-        <div class="valign">
+        <div class="valign" ng-if="currType === 'video'">
           <div class="whitespace">
-            <h1 class="title" ng-if="currType === 'video'">{{video.name}}</h1>
-            <h1 class="title" ng-if="currType === 'article'">{{article.titulo}}</h1>
-          </div>
-          <div class="video" ng-if="currType === 'video'" >
-            <div youtube id="player"></div>
-          </div>
+            <h1 class="title" >{{video.name}}</h1>
 
-          <div class="article" ng-if="currType === 'article'" >
-              <p>{{article.conteudo}}</p>
+          </div>
+          <div class="video" >
+            <div youtube id="player"></div>
           </div>
           <div class="whitespace"></div>
         </div>
+
+          <div class="valign" ng-if="currType === 'article'">
+                  <img class="defaultImage" src="http://www.fct.unl.pt/sites/default/files/imagens/noticias/noticias.jpg">
+
+              <div>
+                  <h3 class="title">{{article.titulo}}</h3>
+                  <h4>{{article.conteudo}}</h4>
+              </div>
+
+              <div>
+                  <h3 class="title">{{article2.titulo}}</h3>
+                  <h4>{{article2.conteudo}}</h4>
+              </div>
+              <div class="whitespace"></div>
+          </div>
+
+
       </div>
 
 

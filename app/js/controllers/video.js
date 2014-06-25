@@ -10,8 +10,8 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     $scope.schedule = data;
     $scope.videos = [];
     $scope.articles = [];
-    //$scope.video = null;
-    //$scope.article = null;
+    $scope.video = null;
+    $scope.article = null;
     $scope.currType = null;
     $scope.schedule.forEach(function(entry){
       if(entry.type === 'video') {
@@ -32,7 +32,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   };
 
   var getcurr = function() {
-      //if(Math.floor((Math.random() * 100) + 1) > 50){
+      if(Math.floor((Math.random() * 100) + 1) > 50){
       $scope.currType = 'video';
       $scope.video = $scope.videos[currVideo];
       if (currVideo === $scope.videos.length-1) {
@@ -41,8 +41,8 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
       else {
         currVideo++;
       }
-    //}
-    /*else{
+    }
+    else{
       $scope.currType = 'article';
       $scope.article = $scope.articles[currArticle];
       if (currArticle === $scope.articles.length-1) {
@@ -51,7 +51,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
       else {
         currArticle++;
       }
-    }*/
+    }
 
     /*$scope.title = $scope.videos[curr].name;
     $scope.id = $scope.videos[curr].videoId;

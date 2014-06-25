@@ -45,25 +45,16 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     else{
       $scope.currType = 'article';
       $scope.article = $scope.articles[currArticle];
-        console.log("ceanceasnceasda");
+          //console.log("ceanceasnceasda");
 
-      if (currArticle === $scope.articles.length-1) {
-        currArticle=0;
-      }
-      else {
-        currArticle++;
-      }
-      $timeout(getcurr, 2000);
+          if (currArticle === $scope.articles.length - 1) {
+            currArticle = 0;
+          }
+          else {
+            currArticle++;
+          }
+          $timeout(getcurr, 11000);
     }
-
-    /*$scope.title = $scope.videos[curr].name;
-    $scope.id = $scope.videos[curr].videoId;
-    if (curr === $scope.videos.length-1) {
-      curr=0;
-    }
-    else {
-      curr++;
-    }*/
   };
 
 });

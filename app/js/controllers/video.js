@@ -6,15 +6,17 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   var currArticle = 0;
   var currBiblio = 0;
   var currType = null;
+  var hardCoded = 1;
 
   ScheduleService.get().then(function(data){
     $scope.schedule = data;
+    console.log(data);
     $scope.videos = [];
     $scope.articles = [];
     $scope.biblios = [];
-    //$scope.video = null;
-    $scope.article = null;
-    $scope.article2 = null;
+    $scope.video = null;
+    // $scope.article = null;
+    // $scope.article2 = null;
     $scope.biblio = null;
     $scope.currType = null;
     $scope.schedule.forEach(function(entry){
@@ -28,9 +30,6 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
         $scope.biblios.push(entry);
       }
     });
-    // console.log($scope.videos);
-    //console.log("");
-    //console.log($scope.articles);
     getcurr();
   });
 
@@ -39,7 +38,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
   };
 
   var getcurr = function() {
-    /*if(Math.floor((Math.random() * 100) + 1) > 50){
+    if(hardCoded===0){ //video
       $scope.currType = 'video';
       $scope.video = $scope.videos[currVideo];
       if (currVideo === $scope.videos.length-1) {
@@ -48,34 +47,33 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
       else {
         currVideo++;
       }
+      hardCoded = 1;
     }
-    else if(Math.floor((Math.random() * 100) + 1) < 33){
-      $scope.currType = 'article';
-      $scope.article = $scope.articles[currArticle];
-      $scope.article2 = $scope.articles[currArticle+1];
-          //console.log("ceanceasnceasda");
-
-          if (currArticle+1 === $scope.articles.length - 1) {
-            currArticle = 0;
-          }
-          else {
-            currArticle++;
-          }
-          $timeout(getcurr, 11000);
-    }*/
-    //else{
+    // else if(hardCoded === 1){
+    //   $scope.currType = 'article';
+    //   $scope.article = $scope.articles[currArticle];
+    //   $scope.article2 = $scope.articles[currArticle+1];
+    //       if (currArticle+1 === $scope.articles.length - 1) {
+    //         currArticle = 0;
+    //       }
+    //       else {
+    //         currArticle++;
+    //       }
+    //       $timeout(getcurr, 11000);
+    // }
+    else if (hardCoded === 1){
       $scope.currType = 'biblio';
+      console.log($scope.biblios[currBiblio]);
       $scope.biblio = $scope.biblios[currBiblio];
-          //console.log("ceanceasnceasda");
-
-          if (currBiblio+1 === $scope.biblios.length - 1) {
+          if (currBiblio === $scope.biblios.length - 1) {
             currBiblio = 0;
+            hardCoded = 0;
           }
           else {
             currBiblio++;
           }
           $timeout(getcurr, 11000);
-    //}
+    }
   };
 
 });

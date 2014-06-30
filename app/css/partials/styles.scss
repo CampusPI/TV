@@ -371,6 +371,7 @@ hr.green {border-top: 1px solid $color-green;}
 .defaultImage{
   display: block;
   margin: 0 auto;
-  max-height: 750px;
+  max-height: 75vh;
+  max-width: 100%;
   vertical-align: top;
 }

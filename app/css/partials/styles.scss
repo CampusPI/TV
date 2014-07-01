@@ -337,6 +337,18 @@ hr.green {border-top: 1px solid $color-green;}
   margin: 0;
 }
 
+.logo {
+  font-family: $logo-font;
+  font-size: 14vmin;
+  color: $color-blue;
+  text-align: center;
+  span {
+    color: lighten($color-blue,15%);
+  }
+  padding: 0;
+  margin: 0;
+}
+
 .divi-b1 > .logo {
   font-family: $logo-font;
   font-size: 8vmin;

@@ -6,31 +6,30 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
 
   var contentCache = DSCacheFactory('contentCache');
 
-  if(!contentCache.data){
-    ScheduleService.get().then(function(data){
-      $scope.schedule = data;
-      getcurr();
-    });
-  }
+  ScheduleService.get().then(function(data){
+    $scope.schedule = data;
+    getcurr();
+  });
 
   var getcurr = function() {
     if (c === $scope.schedule.length) {
       c = 0;
     }
     var elem = $scope.schedule[c];
+    var nextElem = $scope.schedule[c++];
     $scope.currType = elem.type;
     switch (elem.type) {
     case 'video':
       $scope.video = elem;
       break;
     case 'new':
-      //$scope.article = elem;
-      //$timeout(getcurr, 11000);
+      // $scope.article = elem;
+      // $timeout(getcurr, 11000);
       c++; getcurr();
       break;
     case 'biblio':
-      //$scope.biblio = elem;
-      //$timeout(getcurr, 11000);
+      // $scope.biblio = elem;
+      // $timeout(getcurr, 11000);
       c++; getcurr();
       break;
     }

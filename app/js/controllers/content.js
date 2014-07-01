@@ -42,7 +42,6 @@ angular.module('tvApp').controller('ContentCtrl', function ($scope, ContentServi
       $scope.name = d[n].content[ni].type;
       $scope.name = d[n].content[ni].type + ' ('+d[n].content[ni].content[k].name+')';
       $scope.data = d[n].content[ni].content[k].content;
-      // console.log(k,d[n].content[ni].content.length-1);
       if (k > d[n].content[ni].content.length-2) {
         k = 0;
         if (ni > d[n].content.length-2) {

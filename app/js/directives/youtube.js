@@ -3,22 +3,23 @@
 angular.module('tvApp').directive('youtube', function($window) {
   return function (scope) {
 
+    var player;
+
     function newPlaya() {
-      scope.$watch('video', function() {
-        player = new YT.Player('player', {
-          videoId: scope.video.videoId,
-          playerVars: {
-            'autoplay': 1,
-            'controls': 0,
-            'modestbranding': 0,
-            'showinfo': 0,
-            'rel': 0,
-            'end': 10
-          },
-          events: {
-            'onStateChange': onPlayerStateChange
-          }
-        });
+      player = new YT.Player('player', {
+        videoId: scope.video.videoId,
+        playerVars: {
+          'autoplay': 1,
+          'modestbranding': 0,
+          'showinfo': 0,
+          'controls': 0,
+          'rel': 0,
+          'end': 5
+        },
+        events: {
+          'onStateChange': onPlayerStateChange,
+          'onReady': onPlayerReady
+        }
       });
     }
 
@@ -27,16 +28,20 @@ angular.module('tvApp').directive('youtube', function($window) {
         $('.video').html('<div id="player"></div>');
         newPlaya();
       }
+      else{
+        newPlaya();
+      }
     });
 
-    var player;
-
-    // $window.onYouTubeIframeAPIReady = function () {
-    //   newPlaya();
-    // };
+    function onPlayerReady(event) {
+      $('.title').text(scope.video.name);
+      event.target.playVideo();
+    }
 
     function onPlayerStateChange(event) {
       if (event.data === 0) {
+        $('.video').html('<div id="player"></div>');
+        $('.title').text('');
         scope.next();
       }
     }

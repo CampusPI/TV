@@ -12,13 +12,10 @@
 <body>
   <div class="row">
     <div class="col8">
-
-
       <div class="divi-a" ng-controller="ScheduleCtrl">
         <div class="valign" ng-if="currType === 'video'">
           <div class="whitespace">
             <h1 class="title" >{{video.name}}</h1>
-
           </div>
           <div class="video" >
             <div youtube id="player"></div>
@@ -26,36 +23,28 @@
           <div class="whitespace"></div>
         </div>
 
-          <div class="valign" ng-if="currType === 'article'">
-                  <img class="defaultImage" src="http://www.fct.unl.pt/sites/default/files/imagens/noticias/noticias.jpg">
-
-              <div>
-                  <h3 class="title">{{article.titulo}}</h3>
-                  <h4>{{article.conteudo}}</h4>
-              </div>
-
-              <div>
-                  <h3 class="title">{{article2.titulo}}</h3>
-                  <h4>{{article2.conteudo}}</h4>
-              </div>
-              <div class="whitespace"></div>
+        <div class="valign" ng-if="currType === 'new'">
+          <img class="defaultImage newsDefault" src="http://www.fct.unl.pt/sites/default/files/imagens/noticias/noticias.jpg" anini>
+          <div class="newsDefault" anini>
+            <h3 class="title">{{article.titulo}}</h3>
+            <h4>{{article.conteudo}}</h4>
           </div>
-
-
-          <div class="valign" ng-if="currType === 'biblio'">
-
-              <div>
-                  <h1 class="title">{{biblio.titulo}}</h3>
-              </div>
-
-              <img class="defaultImage" ng-src={{biblio.image}}>
-
-              <div class="whitespace"></div>
+          <div class="newsDefault" anini>
+            <h3 class="title">{{article2.titulo}}</h3>
+            <h4>{{article2.conteudo}}</h4>
           </div>
+          <div class="whitespace"></div>
+        </div>
 
 
+        <div class="valign" ng-if="currType === 'biblio'">
+          <div anini>
+            <h1 class="title">{{biblio.titulo}}</h3>
+          </div>
+          <img class="defaultImage" ng-src={{biblio.image}} anini>
+          <div class="whitespace"></div>
+        </div>
       </div>
-
 
       <div class="divi-c">
         <div class="aviso" ng-controller="BroadcastCtrl">
@@ -128,6 +117,7 @@
   <script src="js/directives/youtube.js"></script>
   <script src="js/directives/animinus.js"></script>
   <script src="js/directives/animfade.js"></script>
+  <script src="js/directives/anini.js"></script>
   <!-- FILTERS     -->
   <script src="js/filters/weatherIcon.js"></script>
   <!-- endbuild -->

@@ -1,10 +1,8 @@
 'use strict';
 
-angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout, DSCacheFactory) {
+angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout) {
 
   var c = 0;
-
-  var contentCache = DSCacheFactory('contentCache');
 
   ScheduleService.get().then(function(data){
     $scope.schedule = data;
@@ -16,21 +14,18 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
       c = 0;
     }
     var elem = $scope.schedule[c];
-    var nextElem = $scope.schedule[c++];
     $scope.currType = elem.type;
     switch (elem.type) {
     case 'video':
       $scope.video = elem;
       break;
     case 'new':
-      // $scope.article = elem;
-      // $timeout(getcurr, 11000);
-      c++; getcurr();
+      $scope.article = elem;
+      $timeout(getcurr, 11000);
       break;
     case 'biblio':
-      // $scope.biblio = elem;
-      // $timeout(getcurr, 11000);
-      c++; getcurr();
+      $scope.biblio = elem;
+      $timeout(getcurr, 11000);
       break;
     }
     c++;

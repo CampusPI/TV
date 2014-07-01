@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout, $http) {
+angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleService, $timeout, $http, endpoint) {
 
   var c = 0;
 
@@ -15,7 +15,7 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     }
     var elem = $scope.schedule[c];
     $scope.currType = elem.type;
-    $http.post('http://localhost:8080/api/tv/currentContent', elem).success(function(){
+    $http.post(endpoint+'/api/tv/currentContent', elem).success(function(){
 
     });
 

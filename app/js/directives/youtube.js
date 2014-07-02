@@ -11,7 +11,7 @@ angular.module('tvApp').directive('youtube', function($window) {
         playerVars: {
           'autoplay': 1,
           'showinfo': 0,
-          'controls': 0,
+          'controls': 1,
           'rel': 0,
           'end': 30
         },

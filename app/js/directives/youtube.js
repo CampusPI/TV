@@ -3,18 +3,21 @@
 angular.module('tvApp').directive('youtube', function($window) {
   return function (scope) {
 
+    var player;
+
     function newPlaya() {
       player = new YT.Player('player', {
         videoId: scope.video.videoId,
         playerVars: {
           'autoplay': 1,
-          'modestbranding': 0,
           'showinfo': 0,
+          'controls': 0,
           'rel': 0,
-          'end': 20
+          'end': 30
         },
         events: {
-          'onStateChange': onPlayerStateChange
+          'onStateChange': onPlayerStateChange,
+          'onReady': onPlayerReady
         }
       });
     }
@@ -24,17 +27,20 @@ angular.module('tvApp').directive('youtube', function($window) {
         $('.video').html('<div id="player"></div>');
         newPlaya();
       }
+      else{
+        newPlaya();
+      }
     });
 
-
-    var player;
-
-    $window.onYouTubeIframeAPIReady = function () {
-      newPlaya();
-    };
+    function onPlayerReady(event) {
+      $('.title').text(scope.video.name);
+      event.target.playVideo();
+    }
 
     function onPlayerStateChange(event) {
       if (event.data === 0) {
+        $('.title').text('');
+        $('.video').html('<p class="logo animated tada valign">Campus<span>TV</span></p>');
         scope.next();
       }
     }

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tvApp').directive('youtube', function($window) {
+angular.module('tvApp').directive('youtube', function() {
   return function (scope) {
 
 
@@ -11,7 +11,7 @@ angular.module('tvApp').directive('youtube', function($window) {
         playerVars: {
           'autoplay': 1,
           'showinfo': 0,
-          'controls': 1,
+          'controls': 0,
           'rel': 0,
           'end': 30
         },

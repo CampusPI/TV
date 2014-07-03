@@ -26,8 +26,9 @@
         <div class="valign" ng-if="currType === 'new'">
           <div animfix>
             <img class="defaultImage" src="http://www.fct.unl.pt/sites/default/files/imagens/noticias/noticias.jpg">
-              <h3 class="title">{{article.titulo}}</h3>
-              <h4>{{article.conteudo}}</h4>
+            <div class="whitespace"></div>
+              <h2 class="title">{{article.titulo}}</h3>
+              <h3 class="content">{{article.conteudo}}</h4>
             <div class="whitespace"></div>
           </div>
         </div>
@@ -78,7 +79,9 @@
         </div>
       </div>
       <div class="divi-b1">
-          <p class="logo valign animated pulse" logo>Campus<span>TV</span></p>
+        <div class="logo valign">
+          <p class="loop animated tada">Campus<span>TV</span></p>
+        </div>
       </div>
     </div>
   </div>

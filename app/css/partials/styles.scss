@@ -177,8 +177,14 @@ body {
 .title {
   padding: 0 0.4em;
   margin: 0;
-  line-height: 10vh;
+  line-height: 5vh;
   font-weight: 600;
+}
+
+.content {
+  padding: 2em;
+  margin: 0;
+  font-weight: 400;
 }
 
 .divi-b,
@@ -349,8 +355,20 @@ hr.green {border-top: 1px solid $color-green;}
   span {
     color: lighten($color-blue,15%);
   }
+  p {
+    margin: 0;
+  }
   padding: 0;
   margin: 0;
+}
+
+.loop {
+            animation-iteration-count: infinite;
+       -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+            animation-duration: 20s;
+       -moz-animation-duration: 20s;
+    -webkit-animation-duration: 20s;
 }
 
 .divi-b1 > .logo {

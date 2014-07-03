@@ -3,7 +3,7 @@
 angular.module('tvApp').directive('youtube', function($window) {
   return function (scope) {
 
-    var player;
+
 
     function newPlaya() {
       player = new YT.Player('player', {
@@ -31,6 +31,8 @@ angular.module('tvApp').directive('youtube', function($window) {
         newPlaya();
       }
     });
+
+    var player;
 
     function onPlayerReady(event) {
       $('.title').text(scope.video.name);

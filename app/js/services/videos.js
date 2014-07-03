@@ -7,7 +7,7 @@ angular.module('tvApp').factory('ScheduleService', function ($http, endpoint) {
         method: 'GET',
         url: endpoint+'/api/tv/schedule'
       }).then(function(response) {
-        return response.data;
+        return response.data.sort(Math.round(Math.random())-0.5);
       });
     }
   };

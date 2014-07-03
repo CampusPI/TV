@@ -6,13 +6,8 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
 
   ScheduleService.get().then(function(data){
     $scope.schedule = data;
-    $scope.schedule.sort(randomOrder);
     getcurr();
   });
-
-  function randomOrder(){
-    return (Math.round(Math.random())-0.5);
-  }
 
   var getcurr = function() {
     if (c === $scope.schedule.length) {

@@ -15,9 +15,8 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     }
     var elem = $scope.schedule[c];
     $scope.currType = elem.type;
-    $http.post(endpoint+'/api/tv/currentContent', elem).success(function(){
 
-    });
+    $http.post(endpoint+'/api/tv/currentContent', elem).success(function(){});
 
     switch (elem.type) {
     case 'video':

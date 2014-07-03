@@ -15,24 +15,21 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
     }
     var elem = $scope.schedule[c];
     $scope.currType = elem.type;
-    $http.post(endpoint+'/api/tv/currentContent', elem).success(function(){
 
-    });
+    $http.post(endpoint+'/api/tv/currentContent', elem).success(function(){});
 
     switch (elem.type) {
     case 'video':
-      c++; getcurr();
-      // $scope.video = elem;
-      // break;
+      $scope.video = elem;
+      break;
     case 'new':
       $scope.article = elem;
       $timeout(getcurr, 11000);
       break;
     case 'biblio':
-      c++; getcurr();
-      // $scope.biblio = elem;
-      // $timeout(getcurr, 11000);
-      // break;
+      $scope.biblio = elem;
+      $timeout(getcurr, 11000);
+      break;
     }
     c++;
   };

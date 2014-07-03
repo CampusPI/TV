@@ -24,17 +24,17 @@
         </div>
 
         <div class="valign" ng-if="currType === 'new'">
-          <div anini>
+          <div animfix>
             <img class="defaultImage" src="http://www.fct.unl.pt/sites/default/files/imagens/noticias/noticias.jpg">
               <h3 class="title">{{article.titulo}}</h3>
-              <h4 anini>{{article.conteudo}}</h4>
+              <h4>{{article.conteudo}}</h4>
             <div class="whitespace"></div>
           </div>
         </div>
 
 
         <div class="valign" ng-if="currType === 'biblio'">
-          <div anini>
+          <div fadetitle>
             <h1 class="title">{{biblio.titulo}}</h3>
           </div>
           <img class="defaultImage" ng-src={{biblio.image}} anini>
@@ -112,7 +112,9 @@
   <script src="js/directives/youtube.js"></script>
   <script src="js/directives/animinus.js"></script>
   <script src="js/directives/animfade.js"></script>
+  <script src="js/directives/fixanim.js"></script>
   <script src="js/directives/anini.js"></script>
+  <script src="js/directives/titlefade.js"></script>
   <!-- FILTERS     -->
   <script src="js/filters/weatherIcon.js"></script>
   <!-- endbuild -->

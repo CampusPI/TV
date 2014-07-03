@@ -14,16 +14,5 @@ angular.module('tvApp').directive('anini', function() {
         next();
       });
     });
-    scope.$watch('article.titulo', function() {
-      $(elem).queue(function(next) {
-        $(this).removeClass('fadeOutDown').addClass('animated fadeInDown').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-          $(this).removeClass('animated fadeInDown').delay(9000).queue(function(next){
-            $(this).addClass('animated fadeOutDown');
-            next();
-          });
-        });
-        next();
-      });
-    });
   }
 });

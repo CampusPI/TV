@@ -2,7 +2,7 @@
 
 angular.module('tvApp').directive('anini', function() {
   return function(scope, elem) {
-    console.log(elem);
+    console.log(scope);
     scope.$watch('biblio.image', function() {
       $(elem).delay(100).queue(function(next) {
         $(this).removeClass('bounceOut').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
@@ -14,11 +14,16 @@ angular.module('tvApp').directive('anini', function() {
         next();
       });
     });
-    $('.newsDefault').addClass('animated fadeInDown').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-      $(this).removeClass('animated fadeInDown').delay(9000).queue(function(next){
-        $(this).addClass('animated fadeOutUp');
+    scope.$watch('article.titulo', function() {
+      $(elem).queue(function(next) {
+        $(this).removeClass('fadeOutUp').addClass('animated fadeInDown').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+          $(this).removeClass('animated fadeInDown').delay(9000).queue(function(next){
+            $(this).addClass('animated fadeOutUp');
+            next();
+          });
+        });
         next();
       });
     });
-  };
+  }
 });

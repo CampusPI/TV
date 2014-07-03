@@ -21,16 +21,18 @@ angular.module('tvApp').controller('ScheduleCtrl', function ($scope, ScheduleSer
 
     switch (elem.type) {
     case 'video':
-      $scope.video = elem;
-      break;
+      c++; getcurr();
+      // $scope.video = elem;
+      // break;
     case 'new':
       $scope.article = elem;
       $timeout(getcurr, 11000);
       break;
     case 'biblio':
-      $scope.biblio = elem;
-      $timeout(getcurr, 11000);
-      break;
+      c++; getcurr();
+      // $scope.biblio = elem;
+      // $timeout(getcurr, 11000);
+      // break;
     }
     c++;
   };
